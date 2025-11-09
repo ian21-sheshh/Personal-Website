@@ -1,0 +1,285 @@
+/* GLOBAL */
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial;
+    background: #000;
+    color: white;
+    padding-top: 80px;
+    overflow-x: hidden;
+}
+
+/* NAV BAR */.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 40px;
+    background: #0a0a0a;
+    border-bottom: 1px solid #222;
+
+    box-sizing: border-box;        /* prevents overflow */
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 25px;                     /* smaller spacing to fit the screen */
+    flex-wrap: nowrap;             /* prevents wrapping */
+    overflow-x: hidden;            /* prevents out of bounds */
+}
+
+
+.nav-links a {
+    color: white;
+    font-size: 15px;
+    text-decoration: none;
+}
+.nav-links a:hover { color: #6a8cff; }
+
+/* AUTO SHRINK NAVBAR FOR SMALL SCREENS */
+@media (max-width: 900px) {
+    .nav-links a { font-size: 14px; }
+    .nav-links { gap: 12px; }
+}
+@media (max-width: 750px) {
+    .nav-links {
+        display: none; /* hides large navbar */
+    }
+}
+
+/* MOBILE MENU (OPTION IF YOU WANT LATER) */
+/* ——————————————————————————— */
+
+/* HERO */
+.hero-title {
+    text-align: center;
+    margin-top: 40px;
+    padding: 0 20px;
+}
+
+.hero-title h2 {
+    font-size: clamp(22px, 4vw, 32px);
+}
+
+.subtitle {
+    color: #ccc;
+    font-size: clamp(14px, 2vw, 18px);
+}
+
+/* HOME SECTION */
+.main-section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 60px 40px;
+    flex-wrap: wrap;
+}
+
+.main-image {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+.text-box {
+    max-width: 450px;
+    padding: 0 10px;
+}
+.text-box h3 { margin-bottom: 10px; }
+
+/* ——————————————————————————————— */
+/* UNIVERSAL RESPONSIVE SECTION FORMAT */
+/* ——————————————————————————————— */
+
+.section {
+    padding: 80px 40px;
+}
+
+.section h2 {
+    text-align: center;
+    font-size: clamp(22px, 3vw, 30px);
+    margin-bottom: 40px;
+}
+
+.section-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap; /* fixes all frame sizes */
+}
+
+.section-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.section-pic {
+    width: clamp(180px, 30vw, 260px);
+    height: clamp(180px, 30vw, 260px);
+    object-fit: cover;
+    border-radius: 15px;
+    background: #101010;
+    border: 1px solid #222;
+}
+
+.section-text {
+    max-width: 520px;
+    line-height: 1.6;
+    padding: 0 10px;
+    color: #dcdcdc;
+}
+
+/* CERTS & CARD GRID */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: #111;
+    border: 1px solid #222;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+/* CONTACT ICONS */
+.contact-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.contact-icons a {
+    color: white;
+    font-size: 32px;
+    transition: 0.3s;
+}
+.contact-icons a:hover {
+    color: #6a8cff;
+    transform: scale(1.15);
+}
+
+/* CONTACT LIST (vertical) */
+.contact-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.contact-list a {
+    color: white;
+    font-size: 18px;
+}
+
+/* SKILLS SLIDER */
+.skills-slider-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 40px;
+    padding: 0 10px;
+}
+
+.skills-slider {
+    display: flex;
+    gap: 30px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: clamp(260px, 50vw, 340px);
+    flex-shrink: 0;
+}
+
+.skills-slider .card {
+    height: 330px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* slider buttons */
+.slide-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #111;
+    border: 1px solid #333;
+    color: white;
+    font-size: 26px;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+.slide-btn.left  { left: 0; }
+.slide-btn.right { right: 0; }
+
+.card p i, .card h3 i { color: #6a8cff; margin-right: 10px; }
+
+/* PROGRAMMING GRID */
+.prog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.prog-card {
+    background: #111;
+    border: 1px solid #222;
+    padding: 20px 10px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.prog-card:hover { border-color: #6a8cff; transform: translateY(-4px); }
+
+.prog-icon {
+    font-size: 42px;
+    margin-bottom: 12px;
+}
+
+.prog-card h3 {
+    font-size: clamp(14px, 2vw, 18px);
+    color: #e0e0e0;
+}
+
+/* ——————————————————————————————— */
+/* MOBILE OPTIMIZATION */
+/* ——————————————————————————————— */
+@media (max-width: 600px) {
+
+    .main-section {
+        padding: 40px 20px;
+        gap: 20px;
+    }
+
+    .section {
+        padding: 60px 20px;
+    }
+
+    .slide-btn {
+        padding: 8px 12px;
+        font-size: 20px;
+    }
+}
